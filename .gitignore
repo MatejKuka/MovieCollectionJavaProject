@@ -82,4 +82,4 @@ nb-configuration.xml
 ## OS X
 ##############################
 .DS_Store
-src\DAL\DatabaseConnector.java
+src/DAL/DatabaseConnector.java
