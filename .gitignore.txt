@@ -699,4 +699,4 @@ replay_pid*
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij,java
 
-C:\Users\Dell\Documents\SCHOOL - CS\MovieCollectionProject-main\MovieCollectionProject-main\src\DAL\DatabaseConnector.java
+.src\DAL\DatabaseConnector.java
