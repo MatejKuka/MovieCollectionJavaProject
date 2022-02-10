@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.MainPageController">
+   <children>
+      <VBox spacing="20.0">
+         <children>
+            <VBox prefHeight="51.0" prefWidth="824.0">
+               <children>
+                  <Label prefHeight="0.0" prefWidth="43.0" text="Filter">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="26.0" prefWidth="491.0" spacing="50.0">
+                     <children>
+                        <TextField fx:id="filter" onKeyPressed="#filterOnAction" prefHeight="26.0" prefWidth="254.0" />
+                        <Button fx:id="filterButton" mnemonicParsing="false" onAction="#filterButtonOnAction" text="Clear" />
+                        <Button alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#toCloseApp" text="Close">
+                           <HBox.margin>
+                              <Insets left="480.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <Label fx:id="currentMovie" text="Movie.." textAlignment="CENTER" BorderPane.alignment="CENTER" />
+                     </center>
+                  </BorderPane>
+               </children>
+            </VBox>
+            <BorderPane>
+               <center>
+                  <Button mnemonicParsing="false" onAction="#playMovie" text="Play movie" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+            <GridPane hgap="20.0" vgap="20.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" />
+                  <ColumnConstraints hgrow="SOMETIMES" />
+                  <ColumnConstraints hgrow="SOMETIMES" />
+                <ColumnConstraints hgrow="SOMETIMES" percentWidth="0.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
+                     <left>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Movies" BorderPane.alignment="CENTER" />
+                     </left>
+                  </BorderPane>
+                  <TableView fx:id="tableView" minWidth="360.0" onMousePressed="#selectedMovie" GridPane.columnIndex="3" GridPane.columnSpan="2147483647" GridPane.rowIndex="1">
+                    <columns>
+                      <TableColumn fx:id="nameColumn" minWidth="90.0" prefWidth="-1.0" text="Name" />
+                      <TableColumn fx:id="imdbRatingColumn" minWidth="90.0" prefWidth="-1.0" text="IMDB Rating" />
+                        <TableColumn fx:id="ratingColumn" minWidth="90.0" prefWidth="-1.0" text="User rating" />
+                        <TableColumn fx:id="lastViewColumn" minWidth="90.0" prefWidth="-1.0" text="Last viewed" />
+                    </columns>
+                  </TableView>
+                  <BorderPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <top>
+                        <Button mnemonicParsing="false" onAction="#handleAddMovieToCategory" text="Add" BorderPane.alignment="TOP_CENTER" />
+                     </top>
+                  </BorderPane>
+                  <BorderPane GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <left>
+                        <HBox spacing="20.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#createNewMovie" text="New" />
+                              <Button mnemonicParsing="false" onAction="#handleDeleteMovieBtn" text="Delete" />
+                              <Button mnemonicParsing="false" onAction="#createNewRating" text="Add/Edit Rating" />
+                           </children>
+                        </HBox>
+                     </left>
+                  </BorderPane>
+                  <TableView fx:id="MovieListTableView" fixedCellSize="0.0" onMousePressed="#selectedMovie1" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <columns>
+                      <TableColumn fx:id="nameMovieTableColumn" minWidth="150.0" prefWidth="267.50001525878906" text="Name of the movie" />
+                    </columns>
+                  </TableView>
+                  <TableView fx:id="categoryTableView" onMouseClicked="#handleShowMoviesInCategory" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                    <columns>
+                      <TableColumn fx:id="categoryColumn" prefWidth="198.9999885559082" text="Categories" />
+                    </columns>
+                  </TableView>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+                     <left>
+                        <HBox spacing="20.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#createNewCategory" text="New" />
+                              <Button mnemonicParsing="false" onAction="#handleDeleteCategoryBtn" text="Delete" />
+                           </children>
+                        </HBox>
+                     </left>
+                  </BorderPane>
+                  <BorderPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <center>
+                        <Button mnemonicParsing="false" onAction="#handleRemoveMovieFromCategory" text="Remove" BorderPane.alignment="CENTER" />
+                     </center>
+                  </BorderPane>
+               </children>
+            </GridPane>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

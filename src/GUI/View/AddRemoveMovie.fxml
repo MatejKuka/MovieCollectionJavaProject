@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="dialogPane" prefHeight="400.0" prefWidth="495.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Controller.AddRemoveMovieController">
+    <children>
+        <GridPane hgap="20.0" layoutX="6.0" layoutY="86.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="245.0" prefWidth="452.0" vgap="5.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" percentWidth="0.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="59.5" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints vgrow="SOMETIMES" />
+                <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                <RowConstraints vgrow="SOMETIMES" />
+                <RowConstraints vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <TextField fx:id="titleTextField" prefHeight="30.0" prefWidth="143.0" promptText="Enter a Movie title" GridPane.columnIndex="1" />
+                <TextField fx:id="ratingTextField" promptText="Enter your personal rating" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <BorderPane GridPane.columnIndex="1" GridPane.rowIndex="4">
+                    <right>
+                        <Button fx:id="cancelBtn" mnemonicParsing="false" onAction="#handleCancelMovieBtn" text="Cancel" BorderPane.alignment="CENTER_RIGHT" />
+                    </right>
+                </BorderPane>
+                <BorderPane prefHeight="200.0" prefWidth="200.0">
+                    <right>
+                        <Label alignment="CENTER" text="Title:" BorderPane.alignment="CENTER" />
+                    </right>
+                </BorderPane>
+                <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                    <right>
+                        <Label text="Personal Rating" BorderPane.alignment="CENTER" />
+                    </right>
+                </BorderPane>
+                <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="4" />
+                <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="3">
+                    <right>
+                        <Label text="File:" BorderPane.alignment="CENTER" />
+                    </right>
+                </BorderPane>
+                <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleChooseFile" text="Choose" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                <BorderPane GridPane.columnIndex="2" GridPane.rowIndex="4">
+                    <right>
+                        <Button fx:id="saveBtn" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#handleSaveMovieBtn" text="Save" BorderPane.alignment="CENTER" />
+                    </right>
+                </BorderPane>
+                <BorderPane GridPane.columnIndex="1" GridPane.rowIndex="3">
+                    <center>
+                        <TextField fx:id="fileTextField" promptText="Enter a file path" BorderPane.alignment="CENTER" />
+                    </center>
+                </BorderPane>
+            <BorderPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
+               <right>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="IMDB Rating:" BorderPane.alignment="CENTER" />
+               </right>
+            </BorderPane>
+            <TextField fx:id="imdbRating" promptText="Enter IMDB rating" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            </children>
+            <padding>
+                <Insets bottom="20.0" right="20.0" top="20.0" />
+            </padding>
+        </GridPane>
+    </children>
+</AnchorPane>
